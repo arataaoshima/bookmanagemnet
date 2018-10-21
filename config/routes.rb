@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get "/" => "welcome#home"
+  resources :users
+  post "users/login" => "users#login"
   resources :bookings
   resources :books
   # The priority is based upon order of creation: first created -> highest priority.

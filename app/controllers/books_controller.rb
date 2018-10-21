@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-
+  before_action :logged_in
   # GET /books
   # GET /books.json
   def index
@@ -58,6 +58,12 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+  
+  def logged_in
+    if @current_user == nil
+      redirect_to("/")
     end
   end
 
