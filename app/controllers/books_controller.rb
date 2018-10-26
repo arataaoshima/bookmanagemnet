@@ -35,7 +35,7 @@ class BooksController < ApplicationController
           
     respond_to do |format|
       if @book.save
-         @book.update(thummbnail: "original.png")
+         @book.update(thummbnail: "original.png" ,book_image: "original_image.jpg")
           
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
