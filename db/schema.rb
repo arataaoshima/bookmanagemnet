@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181021043700) do
+ActiveRecord::Schema.define(version: 20181023012324) do
 
   create_table "bookings", force: :cascade do |t|
-    t.string   "book"
     t.date     "start"
     t.date     "end"
     t.datetime "created_at", null: false
@@ -27,6 +26,19 @@ ActiveRecord::Schema.define(version: 20181021043700) do
     t.text     "title"
     t.text     "author"
     t.string   "thummbnail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "content"
+    t.string   "book_image"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.date     "start"
+    t.date     "end"
+    t.string   "checkin"
+    t.string   "checkout"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,6 +1,15 @@
 <h1>Editing Book</h1>
 
-<%= render 'form' %>
+<%= form_tag("/books/#{@book.id}", multipart: true, method: :patch) do %>
+
+　　　　　<p>タイトル名</p>
+          <input name="title" value="<%= @book.title %>">
+       
+          <p>サムネイル</p>
+          <input name="thummbnail" type="file">
+          
+          <input type="submit" value="保存">
+<% end %>
 
 <%= link_to 'Show', @book %> |
 <%= link_to 'Back', books_path %>

@@ -1,0 +1,29 @@
+<%= form_tag("/reservations", method: :post) do %>
+
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Book id:</strong>
+  <%= @book.id %> 
+</p>
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+   
+<p>
+  <strong>Author:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Start Date:</strong>
+  <input type="date">
+</p>
+<p>
+  <strong>End Date:</strong>
+  <input type="date">
+</p>
+<input type="submit">
+<% end %>
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

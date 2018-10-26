@@ -23,11 +23,21 @@ class BookingsController < ApplicationController
 
   # POST /bookings
   # POST /bookings.json
+  
+  
+  # Userクラスを作成していないので、擬似的なUser構造体を作る
+  
   def create
     @booking = Booking.new(booking_params)
 
     respond_to do |format|
       if @booking.save
+      
+
+      	# deliverメソッドを使って、メールを送信する
+      	#BookingMailer.booking_email.deliver
+        
+        
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
@@ -69,6 +79,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:book, :start, :end)
+      params.require(:booking).permit(:book, :start, :end, :user_id, :book_id)
     end
 end

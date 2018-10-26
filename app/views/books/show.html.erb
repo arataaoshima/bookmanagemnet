@@ -12,8 +12,13 @@
 
 <p>
   <strong>Thummbnail:</strong>
-  <%= @book.thummbnail %>
+<img src="<%= "/book/#{@book.thummbnail}"%>" class="thum-size">
+</p>
+<p>
+  <strong>Content:</strong>
+  <%= @book.content %>
 </p>
 
+<%= link_to "Rental", "/reservations/#{@book.id}/rental"%>|
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @reservation.user_id %>
+</p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @reservation.book_id %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @reservation.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @reservation.end %>
+</p>
+
+<p>
+  <strong>Checkin:</strong>
+  <%= @reservation.checkin %>
+</p>
+
+<p>
+  <strong>Checkout:</strong>
+  <%= @reservation.checkout %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>

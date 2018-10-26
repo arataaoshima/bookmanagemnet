@@ -1,0 +1,11 @@
+
+<%= form_tag(reservations_make_path, method: :post) do %>
+Rental Person: <%= @current_user.name %> </br>
+Book id: <input value="<%= @id %>" name="book_id">
+<p>Start Date</p>
+<input type="date" name="start_date">
+<p>End Date</p>
+<input type="date" name="end_date"> </br>
+<input type="submit">
+
+<% end %>

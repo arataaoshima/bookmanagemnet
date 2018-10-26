@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-    has_many :bookings
-    has_many :books, through: :bookings
+    has_many :reservations
+    has_many :books, through: :reservations
 end

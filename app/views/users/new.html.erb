@@ -1,0 +1,14 @@
+<h1>Apply for New Account</h1>
+<div class="users_new_container">
+<%= form_tag("/users", method: :post) do %>
+<p>Name</p>
+<input name="name">
+<p>Email</p>
+<input name="email">
+<p>Phone Number</p>
+<input name="phone">
+<p>Address</p>
+<input name="address"></br>
+<input type="submit">
+<% end %>
+</div>

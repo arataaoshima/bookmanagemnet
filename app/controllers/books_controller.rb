@@ -11,6 +11,10 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
   end
+  
+  def rental
+    @book = Book.find_by(id: params[:id])
+  end
 
   # GET /books/new
   def new
@@ -19,15 +23,20 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
+    @book = Book.find_by(id: params[:id])
   end
 
   # POST /books
   # POST /books.json
   def create
     @book = Book.new(book_params)
-
+         # image = params[:thummbnail]
+         # File.binwrite("public/book/#{@book.id}.jpg", image.read)
+          
     respond_to do |format|
       if @book.save
+         @book.update(thummbnail: "original.png")
+          
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
       else
@@ -36,20 +45,30 @@ class BooksController < ApplicationController
       end
     end
   end
+  
+  def update
+     @book = Book.find_by(id: params[:id])
+     @book.update(title: params[:title], thummbnail:"#{@book.id}.jpg")
+
+          image = params[:thummbnail]
+          File.binwrite("public/book/#{@book.id}.jpg", image.read)
+          redirect_to("/books")
+  end
+  
 
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
-  def update
-    respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
-        format.json { render :show, status: :ok, location: @book }
-      else
-        format.html { render :edit }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+ # def update
+    #respond_to do |format|
+      #if @book.update(book_params)
+       # format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @book }
+     # else
+        #format.html { render :edit }
+        #format.json { render json: @book.errors, status: :unprocessable_entity }
+      #end
+   # end
+  #end
 
   # DELETE /books/1
   # DELETE /books/1.json
@@ -75,6 +94,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :thummbnail)
+      params.require(:book).permit(:title, :author, :thummbnail, :content, :book_image)
     end
 end

@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  resources :reservations
+  get "/reservations/:id/rental" => "reservations#rental"
+  post "reservations/make" => "reservations#make"
   get "/" => "welcome#home"
   resources :users
   post "users/login" => "users#login"
+  post "users/logout" => "users#logout"
   resources :bookings
   resources :books
+  get "/books/:id/rental" => "books#rental"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
