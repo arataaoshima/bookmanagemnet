@@ -48,10 +48,13 @@ class BooksController < ApplicationController
   
   def update
      @book = Book.find_by(id: params[:id])
-     @book.update(title: params[:title], thummbnail:"#{@book.id}.jpg")
+     @book.update(title: params[:title], thummbnail:"#{@book.id}.jpg", book_image:"#{@book.id}_image.jpg")
 
           image = params[:thummbnail]
+          book_image = params[:book_image]
+          
           File.binwrite("public/book/#{@book.id}.jpg", image.read)
+          File.binwrite("public/book/#{@book.id}_image.jpg", book_image.read)
           redirect_to("/books")
   end
   

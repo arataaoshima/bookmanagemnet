@@ -18,6 +18,12 @@
   <strong>Content:</strong>
   <%= @book.content %>
 </p>
+<p>
+  <strong>Book Image</strong>
+ <img src="<%= "/book/#{@book.book_image}" %>" class="thum-size"> 
+</p>
+
+
 
 <%= link_to "Rental", "/reservations/#{@book.id}/rental"%>|
 <%= link_to 'Edit', edit_book_path(@book) %> |
