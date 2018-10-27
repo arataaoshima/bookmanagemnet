@@ -1,28 +1,35 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @book.title %>
+  <strong>Title:</strong></br>
+  <h2><%= @book.title %></h2>
 </p>
 
 <p>
-  <strong>Author:</strong>
-  <%= @book.author %>
+  <strong>Author:</strong></br>
+  <h3><%= @book.author %></h3>
 </p>
 
 <p>
-  <strong>Thummbnail:</strong>
-<img src="<%= "/book/#{@book.thummbnail}"%>" class="thum-size">
-</p>
-<p>
-  <strong>Content:</strong>
+  <strong>Content:</strong></br>
   <%= @book.content %>
 </p>
 <p>
-  <strong>Book Image</strong>
- <img src="<%= "/book/#{@book.book_image}" %>" class="thum-size"> 
+  <strong>Book Image</strong></br>
+ <img src="<%= "/book/#{@book.book_image}" %>" class="book-size">
 </p>
-
+<p>
+  <strong>Current Booking Status</strong></br>
+  
+  <% @book.reservations.each do |r| %>
+  <% if r.end >= Date.today %>
+ Start: <%= r.start %> |
+ Booking end: <%= r.end %></br>
+  <% end %>
+ <% end %>
+</p>
+</div>
 
 
 <%= link_to "Rental", "/reservations/#{@book.id}/rental"%>|
