@@ -53,8 +53,9 @@ class BooksController < ApplicationController
           image = params[:thummbnail]
           book_image = params[:book_image]
           
-          File.binwrite("public/book/#{@book.id}.jpg", image.read)
-          File.binwrite("public/book/#{@book.id}_image.jpg", book_image.read)
+          File.binwrite("app/assets/images/#{@book.id}.jpg", image.read)
+          File.binwrite("app/assets/images/#{@book.id}_image.jpg", book_image.read)
+          #File.binwrite("public/book/#{@book.id}_image.jpg", book_image.read)
           redirect_to("/books")
   end
   

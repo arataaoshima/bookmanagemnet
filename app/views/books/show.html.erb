@@ -17,7 +17,7 @@
 </p>
 <p>
   <strong>Book Image</strong></br>
- <img src="<%= "/book/#{@book.book_image}" %>" class="book-size">
+ <%= image_tag(@book.book_image, :size => "120x120") %>
 </p>
 <p>
   <strong>Current Booking Status</strong></br>
