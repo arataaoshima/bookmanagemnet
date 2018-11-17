@@ -20,7 +20,7 @@
       <tr>
         <td><%= book.id %></td>
        <td><%= image_tag(book.thummbnail, :size => "60x60") %></td> 
-        <td><img src="/assets/images/<%= book.thummbnail %>" class="thmb"> </td>
+        <td><%= image_tag avatar_book_path(book) %></td>
         <td><%= book.title %></td>
         <td><%= book.author %></td>
         <td><%= book.content %></td>

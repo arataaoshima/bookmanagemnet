@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   post "users/login" => "users#login"
   post "users/logout" => "users#logout"
   resources :bookings
-  resources :books
+  resources :books do
+     member { get :avatar } 
+  end
   get "/books/:id/rental" => "books#rental"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

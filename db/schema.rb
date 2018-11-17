@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181023012324) do
+ActiveRecord::Schema.define(version: 20181117073338) do
 
   create_table "bookings", force: :cascade do |t|
     t.date     "start"
@@ -26,10 +26,12 @@ ActiveRecord::Schema.define(version: 20181023012324) do
     t.text     "title"
     t.text     "author"
     t.string   "thummbnail"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.text     "content"
     t.string   "book_image"
+    t.binary   "avator"
+    t.string   "avator_content_type"
   end
 
   create_table "reservations", force: :cascade do |t|

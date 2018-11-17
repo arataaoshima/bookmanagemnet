@@ -46,17 +46,30 @@ class BooksController < ApplicationController
     end
   end
   
+  def avatar
+    @book = Book.find(params[:id])
+    send_data(@book.avator, type: @book.avator_content_type, disposition: :inline)
+  end
+  
   def update
-     @book = Book.find_by(id: params[:id])
-     @book.update(title: params[:title], thummbnail:"#{@book.id}.jpg", book_image:"#{@book.id}_image.jpg")
+      @book = Book.find_by(id: params[:id])
+      @book.title = params[:title]
+      @book.avator = params[:book_image].read # <= バイナリをセット
+      @book.avator_content_type = params[:book_image].content_type # <= ファイルのタイプを保存(拡張子タイプ)
+      @book.save
+   redirect_to("/books")
+     
+     #@book = Book.find_by(id: params[:id])
+     #@book.update(title: params[:title], thummbnail:"#{@book.id}.jpg", book_image:"#{@book.id}_image.jpg")
 
-          image = params[:thummbnail]
-          book_image = params[:book_image]
+          #image = params[:thummbnail]
+          #book_image = params[:book_image]
           
-          File.binwrite("app/assets/images/#{@book.id}.jpg", image.read)
-          File.binwrite("app/assets/images/#{@book.id}_image.jpg", book_image.read)
+          #File.binwrite("app/assets/images/#{@book.id}.jpg", image.read)
+          #File.binwrite("app/assets/images/#{@book.id}_image.jpg", book_image.read)
           #File.binwrite("public/book/#{@book.id}_image.jpg", book_image.read)
-          redirect_to("/books")
+     
+      
   end
   
 
