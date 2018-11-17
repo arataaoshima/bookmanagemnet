@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   post "users/logout" => "users#logout"
   resources :bookings
   resources :books do
-     member { get :avatar } 
+     member { get :avatar}
+     member { get :page_image}
   end
   get "/books/:id/rental" => "books#rental"
   # The priority is based upon order of creation: first created -> highest priority.

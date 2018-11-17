@@ -16,8 +16,9 @@
   <%= @book.content %>
 </p>
 <p>
-  <strong>Book Image</strong></br>
- <%= image_tag(@book.book_image, :size => "120x120") %>
+  <strong>Page Image</strong></br>
+ <%= image_tag page_image_book_path(@book), :size => "120x120" %>
+
 </p>
 <p>
   <strong>Current Booking Status</strong></br>

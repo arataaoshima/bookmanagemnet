@@ -35,7 +35,7 @@ class BooksController < ApplicationController
           
     respond_to do |format|
       if @book.save
-         @book.update(thummbnail: "original.png" ,book_image: "original_image.jpg")
+         #@book.update(avator: "original.png" ,book_image: "original_image.jpg")
           
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
@@ -51,11 +51,18 @@ class BooksController < ApplicationController
     send_data(@book.avator, type: @book.avator_content_type, disposition: :inline)
   end
   
+  def page_image
+    @book = Book.find(params[:id])
+    send_data(@book.page_image, type: @book.page_image_type, disposition: :inline)
+  end
+  
   def update
       @book = Book.find_by(id: params[:id])
       @book.title = params[:title]
       @book.avator = params[:book_image].read # <= バイナリをセット
+      @book.page_image = params[:page_image].read
       @book.avator_content_type = params[:book_image].content_type # <= ファイルのタイプを保存(拡張子タイプ)
+      @book.page_image_type = params[:page_image].content_type
       @book.save
    redirect_to("/books")
      
