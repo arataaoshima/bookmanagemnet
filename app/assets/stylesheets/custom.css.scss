@@ -1,5 +1,37 @@
-@import "bootstrap-sprockets";
+@import "bootstrap-sprockets"
 @import "bootstrap";
+
+@font-face {
+  font-family: 'anzu';  //font-name
+  src: font-url("/assets/anzu.eot");
+  src: font-url("/assets/anzu.woff") format("woff"), font-url("/assets/anzu.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'honoka';  //font-name
+  src: font-url("/assets/honokamarugo-forweb.eot");
+  src: font-url("/assets/honokamarugo-forweb.woff") format("woff"), font-url("/assets/honokamarugo-forweb.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Logo';  //font-name
+  src: font-url("/assets/Logo.eot");
+  src: font-url("/assets/Logo.woff") format("woff"), font-url("/assets/Logo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'caveat';  //font-name
+  src: font-url("/assets/caveat.eot");
+  src: font-url("/assets/caveat.woff") format("woff"), font-url("/assets/caveat.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 .users_new_container {
     text-align:center;
@@ -8,5 +40,25 @@
 
 .container {
     text-align:center;
-    
+  font-family: 'anzu';
+}
+
+
+h1 {
+    //font-family: 'caveat';
+    font-family: 'anzu'; 
+}
+
+.navbar{
+    //font-family: 'honoka'; 
+    //font-family: 'Logo'; 
+     font-family: 'anzu';
+     //font-family: 'caveat';
+     //font-family:Forte;
+}
+.navbar li {
+    //font-family: 'honoka'; 
+    //font-family: 'Logo'; 
+    font-family: 'anzu';
+    //font-family: 'caveat';
 }
