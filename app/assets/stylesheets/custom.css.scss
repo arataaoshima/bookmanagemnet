@@ -1,4 +1,4 @@
-@import "bootstrap-sprockets"
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 @font-face {
@@ -8,6 +8,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'honoka';  //font-name
   src: font-url("/assets/honokamarugo-forweb.eot");
@@ -44,21 +45,18 @@
 }
 
 
+body {
+     font-family: 'anzu';
+}
+
+
 h1 {
-    //font-family: 'caveat';
     font-family: 'anzu'; 
 }
 
 .navbar{
-    //font-family: 'honoka'; 
-    //font-family: 'Logo'; 
      font-family: 'anzu';
-     //font-family: 'caveat';
-     //font-family:Forte;
 }
 .navbar li {
-    //font-family: 'honoka'; 
-    //font-family: 'Logo'; 
     font-family: 'anzu';
-    //font-family: 'caveat';
 }
