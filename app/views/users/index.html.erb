@@ -1,7 +1,11 @@
 <h1>Users#index</h1>
 
-<%= @users.each do |user| %>
+<% @users.each do |user| %>
 <%= user.name %>
 <%= user.email %>
 <%= user.password %>
+<%= user.password %>
+<%= user.admin %>
+<%= link_to("Edit","/users/#{user.id}/edit") %></br>
+----------------------------</br>
 <% end %>

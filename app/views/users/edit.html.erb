@@ -1,0 +1,13 @@
+<h1>Edit User</h1>
+
+<%= form_tag("/users/#{@user.id}", method: :put) do %>
+<p>なまえ</p>
+<input value="<%= @user.name %>" name="name">
+<p>Email</p>
+<input value="<%= @user.email %>" name="email">
+<p>でんわ</p>
+<input value="<%= @user.phone %>" name="phone">
+<p>アドミン？</p>
+<input type="checkbox" name="admin"></br>
+<input type="submit">
+<% end %>

@@ -21,7 +21,17 @@ class UsersController < ApplicationController
      end
       
       def edit
-           
+           @user = User.find_by(id: params[:id])
+      end
+      
+      def update
+            @user = User.find_by(id: params[:id])
+            @user.name = params[:name]
+            @user.phone = params[:phone]
+            @user.email = params[:email]
+            @user.admin = params[:admin]
+            @user.save
+            redirect_to("/users")
       end
     
      def login
@@ -34,6 +44,10 @@ class UsersController < ApplicationController
           else
                redirect_to("/")
           end
+     end
+     
+     def show
+          @user = User.find_by(id: params[:id])
      end
      
      def logout

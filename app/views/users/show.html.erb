@@ -1,0 +1,12 @@
+<h1>まいぺーじ</h1>
+
+<p>なまえ</p>
+<%= @user.name %>
+<p>Email</p>
+<%= @user.email %>
+<p>でんわ</p>
+<%= @user.phone %>
+<p>住所</p>
+<%= @user.address %>
+<p>編集</p>
+<%= link_to("ここから", "/users/#{@user.id}/edit") %>

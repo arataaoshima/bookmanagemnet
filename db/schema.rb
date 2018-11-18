@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181117175300) do
+ActiveRecord::Schema.define(version: 20181118020502) do
 
   create_table "bookings", force: :cascade do |t|
     t.date     "start"
@@ -54,8 +54,9 @@ ActiveRecord::Schema.define(version: 20181117175300) do
     t.string   "password"
     t.text     "address"
     t.string   "postalcode"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "admin",      default: false, null: false
   end
 
 end
