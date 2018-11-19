@@ -1,0 +1,28 @@
+<div class="container my-bookings-wrapper">
+<h1>My Bookings</h1>
+
+<p>なまえ</p>
+<%= @user.name %></br>
+<p>過去の予約</p>
+
+<% @user.reservations.each do |r| %>
+ <% if r && r.end && r.end <= Date.today %>
+    Book Name: <%= r.book.title %>
+    Start Date: <%= r.start %>
+    End Date: <%= r.end %></br>
+<% end %>
+
+<% end %>
+
+<p>現在又は将来の予約</p>
+
+<% @user.reservations.each do |r| %>
+ <% if r && r.end && r.end >= Date.today && r.book %>
+
+    Book Name: <%= r.book.title %>
+    Start Date: <%= r.start %>
+    End Date: <%= r.end %></br>
+<% end %>
+
+<% end %>
+</div>

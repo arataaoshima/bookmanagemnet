@@ -33,6 +33,10 @@ class UsersController < ApplicationController
             @user.save
             redirect_to("/users")
       end
+      
+      def my_bookings
+           @user = User.find_by(id: params[:id])
+      end
     
      def login
           @user = User.find_by(email: params[:email], password: params[:password])

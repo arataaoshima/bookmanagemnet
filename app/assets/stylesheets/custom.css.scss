@@ -60,3 +60,11 @@ h1 {
 .navbar li {
     font-family: 'anzu';
 }
+
+.my-bookings-wrapper {
+    background: url("/book/10.jpg") no-repeat center;
+    background-size: cover;
+    height:500px;
+    color:white;
+    opacity:1.0;
+}

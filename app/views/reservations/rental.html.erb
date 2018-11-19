@@ -1,7 +1,11 @@
 
 <%= form_tag(reservations_make_path, method: :post) do %>
+
+<div class="invisi">
 Rental Person: <%= @current_user.name %> </br>
-Book id: <input value="<%= @id %>" name="book_id">
+<p>Book id: <input value="<%= @id %>" name="book_id"></p>
+</div>
+
 <p>Start Date</p>
 <input type="date" name="start_date">
 <p>End Date</p>
@@ -9,3 +13,5 @@ Book id: <input value="<%= @id %>" name="book_id">
 <input type="submit">
 
 <% end %>
+<!--<% if @current_user && @current_user.admin == true %> -->
+<!--<% end %> -->

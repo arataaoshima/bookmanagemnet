@@ -12,6 +12,7 @@ Rails.application.routes.draw do
      member { get :page_image}
   end
   get "/books/:id/rental" => "books#rental"
+  get "users/:id/my_bookings" =>"users#my_bookings"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

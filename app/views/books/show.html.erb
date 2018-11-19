@@ -30,9 +30,12 @@
   <% end %>
  <% end %>
 </p>
+
+
+
+<%= link_to "借りる", "/reservations/#{@book.id}/rental"%>|
+<% if @current_user && @current_user.admin == true %>
+<%= link_to '本の編集', edit_book_path(@book) %> |
+<% end %>
+<%= link_to 'もどる', books_path %>
 </div>
-
-
-<%= link_to "Rental", "/reservations/#{@book.id}/rental"%>|
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>

@@ -7,7 +7,9 @@
 <input value="<%= @user.email %>" name="email">
 <p>でんわ</p>
 <input value="<%= @user.phone %>" name="phone">
+<% if @current_user.admin == true %>
 <p>アドミン？</p>
 <input type="checkbox" name="admin"></br>
+<% end %>
 <input type="submit">
 <% end %>
