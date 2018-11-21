@@ -59,10 +59,18 @@ class BooksController < ApplicationController
   def update
       @book = Book.find_by(id: params[:id])
       @book.title = params[:title]
+      
+      
+      if params[:book_image]
       @book.avator = params[:book_image].read # <= バイナリをセット
-      @book.page_image = params[:page_image].read
       @book.avator_content_type = params[:book_image].content_type # <= ファイルのタイプを保存(拡張子タイプ)
+      end
+      
+      if params[:page_image]
+      @book.page_image = params[:page_image].read
       @book.page_image_type = params[:page_image].content_type
+      end 
+      
       @book.save
    redirect_to("/books")
      

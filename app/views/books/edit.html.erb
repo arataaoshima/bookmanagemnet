@@ -1,16 +1,24 @@
+<div class="container">
 <h1>Editing Book</h1>
 
-<%= form_tag("/books/#{@book.id}", multipart: true, method: :patch) do %>
+        <%= form_tag("/books/#{@book.id}", multipart: true, method: :patch) do %>
 
-　　　　　<p>タイトル名</p>
+　　　　　<p>タイトル</p>
           <input name="title" value="<%= @book.title %>">
-       
-          <p>アバター</p>
-          <input name="book_image" type="file">
-          <p>ページイメージ</p>
-          <input name="page_image" type="file">
+          <p>作者</p>
+          <input name="author" value="<%= @book.author %>">
+          <p>内容</p>
+          <textarea name="content"><%= @book.content %></textarea>
+          <p>現在のサムネイル</p>
+          <p><%= image_tag avatar_book_path(@book), :size => "60x60" %></p>
+          <div class="file-form"><input name="book_image" type="file" class="file-form"></div>
+          <p>現在のページイメージ</p>
+          <div><%= image_tag page_image_book_path(@book), :size => "60x60" %></div>
+          <input name="page_image" type="file" class="file-form">
+          <p></p>
           <input type="submit" value="保存">
-<% end %>
+          <% end %>
 
 <%= link_to 'Show', @book %> |
 <%= link_to 'Back', books_path %>
+</div>
