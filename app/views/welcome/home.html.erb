@@ -1,13 +1,14 @@
 <div class="background-yellow">
   <div class="container">
-<h1>This is homepage</h1>
+<h1>絵本の家</h1>
 
 <div class="container">
-  <h2>Modal Example</h2>
+  
   <!-- Trigger the modal with a button -->
+  <% if !@current_user %>
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">ログイン</button>
   <a type="button" class="btn btn-primary btn-lg" href="/users/new">会員登録</a>
-
+  <% end %>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -36,5 +37,16 @@
   </div>
   
 </div>
+　<div class="home-about">
+　  <h2>当サイトについて</h2>
+　  <p class="home-about-content">当サイトは、カナダのバンクーバーで絵本を借りたい人が気軽に借りれる為に作られました。
+良質な絵本にお子様が触れることで、日本語に興味を持ってくれたり、日本語を身につけてくれたりしたら
+嬉しい限りです。
+　  </p>
+　</div>
+　<div class="sns">
+　  <h2>Follow us on Facebook</h2>
+　 <a  href="https://www.facebook.com/childatheartvan/?__tn__=kCH-R&eid=ARDtpV-t0E9iexJo1KKNvQYQcZh4I0xvgIeKUY-Kr8KyS-DfRGkZ1QczO4xHGALzK6QP71sth4JlR4mx&hc_ref=ARRDdY0gaAU8hmTXKuw01RlboWVoSBtegBj8XZTqFmh0aPA_EEqnHOKBwxr9KKdEpfo&fref=nf&__xts__[0]=68.ARAigzEDiyMNSD0CJ_02ydH_kUYfbM6LVFGaU5zq68n-6ckpeC5SxEXxMYWTWXnGK8-aPjC-VpymHmFWCLPx9l0WG9pastE65hIJiGTI3a5TU9yc4X-al_3vP-250ir8LsQ1tYfi4FNoNZyni_R9kOgwhNW__RmRwVj6f4ezzvMScy7zodb2hVdrBeaMyFMW9iAkTyXW-7ms2CajnyLAmxG1fyZ_4Yv8Cpsf5KksihtB4UqtqMxDXnckVSepEVk379MQ5VU5pou6l4aTtAoibQ73XMY0lTINaXhTNp0--lN1vRjf0vddqOHJlo1raDOnlkc"　 target="_blank"><i class="fab fa-facebook fa-4x fb"></i></a>
+　</div>
 </div>
 </div>

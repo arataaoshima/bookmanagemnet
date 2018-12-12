@@ -1,7 +1,14 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Books</h1>
-
+<div class="center">
+<h1>絵本一覧</h1>
+<%= form_tag books_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<%= will_paginate @books, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'%>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -16,6 +23,7 @@
   </thead>
 
   <tbody>
+    
     <% @books.each do |book| %>
       <tr>
         <!-- <td><%= book.id %></td> -->
@@ -33,7 +41,10 @@
     <% end %>
   </tbody>
 </table>
+<div class="center">
+<%= will_paginate @books, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to '新しく本を追加', new_book_path %>
+</div>

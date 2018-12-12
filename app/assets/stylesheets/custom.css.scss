@@ -9,6 +9,7 @@
   font-style: normal;
 }
 
+
 @font-face {
   font-family: 'honoka';  //font-name
   src: font-url("/assets/honokamarugo-forweb.eot");
@@ -46,19 +47,21 @@
 
 
 body {
-     font-family: 'anzu';
+     font-family: 'anzu','APJapanesefontH';
+     
 }
 
 
 h1 {
-    font-family: 'anzu'; 
+    font-family: 'anzu','APJapanesefontH'; 
+
 }
 
 .navbar{
-     font-family: 'anzu';
+     font-family: 'anzu','APJapanesefontH';
 }
 .navbar li {
-    font-family: 'anzu';
+    font-family: 'anzu','APJapanesefontH';
 }
 
 .my-bookings-wrapper {
@@ -69,11 +72,36 @@ h1 {
     opacity:1.0;
 }
 
-.background-yellow{
+body {
     background: url("/book/yellow.jpg") no-repeat center;
     background-size: cover;
+}
+
+.background-yellow{
+    //background: url("/book/yellow.jpg") no-repeat center;
+    //background-size: cover;
     height:1000px;
     //color:white;
     opacity:1.0;
 }
+
+.center {
+    text-align:center;
     
+}
+
+.reservation-table-contaier{
+    text-align:center;
+    width:75%;
+    margin: 0 auto;
+}
+
+.home-about-content {
+    text-align:center;
+    width:70%;
+    margin: 0 auto;
+}
+
+.fb {
+    color:#3b5998;
+}

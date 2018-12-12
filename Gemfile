@@ -7,6 +7,10 @@ gem 'rails', '4.2.8'
 
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.7'
+
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

@@ -1,6 +1,67 @@
 <div class="container my-bookings-wrapper">
-<h1>My Bookings</h1>
+ <h1>My Bookings</h1>
 
+<p>過去の予約</p>
+ <div class="reservation-table-contaier">
+<div class="row">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" class="col-md-2">本</th>
+      <th scope="col" class="col-md-2">開始日</th>
+      <th scope="col" class="col-md-2">終了日</th>
+      <th scope="col" class="col-md-2">Returned?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.reservations.each do |r| %>
+   <% if r && r.end && r.end <= Date.today %>
+    <tr>
+      <td class="col-md-2" align="left"><%= r.book.title %></td>
+      <td class="col-md-2" align="left"><%= r.start %></td>
+      <td class="col-md-2" align="left"><%= r.end %></td>
+      <td class="col-md-2" align="left"> 
+       <% if r.checkout == "Yes" %>
+        Returned
+       <% end %>
+      </td>
+     </tr>
+     <% end %>
+   <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+<p>将来の予約</p>
+<table class="table  table-dark reservation-table-contaier" class="row" >
+  <thead>
+    <tr>
+      <th scope="col" class="col-md-3">本</th>
+      <th scope="col" class="col-md-3">開始日</th>
+      <th scope="col" class="col-md-3">終了日</th>
+      <th scope="col" class="col-md-3">Returned?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.reservations.each do |r| %>
+   <% if r && r.end && r.end >= Date.today && r.book %>
+    <tr>
+      <td class="col-md-3" align="left"><%= r.book.title %></td>
+      <td class="col-md-3" align="left"><%= r.start %></td>
+      <td class="col-md-3" align="left"><%= r.end %></td>
+      <td class="col-md-3" align="left"> 
+       <% if r.checkout == "Yes" %>
+        Returned
+       <% end %>
+      </td>
+     </tr>
+     <% end %>
+   <% end %>
+  </tbody>
+</table>
+</div>
+
+<!--
 <p>なまえ</p>
 <%= @user.name %></br>
 <p>過去の予約</p>
@@ -9,8 +70,11 @@
  <% if r && r.end && r.end <= Date.today %>
     Book Name: <%= r.book.title %>
     Start Date: <%= r.start %>
-    End Date: <%= r.end %></br>
-<% end %>
+    End Date: <%= r.end %>
+    <% if r.checkout == "Yes" %>
+    Returned
+    <% end %>
+<% end %></br>
 
 <% end %>
 
@@ -18,11 +82,10 @@
 
 <% @user.reservations.each do |r| %>
  <% if r && r.end && r.end >= Date.today && r.book %>
-
     Book Name: <%= r.book.title %>
     Start Date: <%= r.start %>
     End Date: <%= r.end %></br>
 <% end %>
-
 <% end %>
-</div>
+
+-->
